@@ -25,7 +25,7 @@ SECRET_KEY = 'g#@wra)ujdlojwkx333=1tb6gkaxi2y!njm@v*d*0(=ynm$m97'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['209.50.53.147']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -120,6 +120,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 
 # media config
 MEDIA_URL = '/media/'
