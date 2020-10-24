@@ -1,0 +1,25 @@
+{% extends 'images/base.html' %}
+{% load static %}
+
+{% block title %}Previsión AFP Bolivia{% endblock %}
+{% block header %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-expand-lg" style="background: #042e58;">
+        <img width="250px" height="60px" class="navbar-brand my-2" src="https://www.prevision.com.bo/archivos/multimedia/logo_2020.svg" alt="logo">
+    </nav>
+    <div class="container">
+        <div class="row mb-4 mt-3">
+            <div class="col-md-7 col-sm-12 col-xs-12 mx-auto text-center">
+{#                <h3 class="font-weight-bold">Datos del Asegurado</h3>#}
+                {% if image %}
+                    <img src="{{ image.image.url }}" alt="{{ image.name }}" class="img-fluid">
+                {% else %}
+                    <p class="font-weight-bold">Sin datos para mostrar.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
