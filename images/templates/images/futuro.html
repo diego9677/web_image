@@ -15,12 +15,12 @@
      <div style="margin-left: 100px; color: #2a649d;" class="font-weight-bold">
             Futuro de Bolivia S.A. AFP > Asegurado >
      </div>
-    <div class="container">
+    <div>
         <div class="row mb-4">
-            <div class="col-sm-12 col-xs-12 col-md-7 mx-auto text-center">
-                <img src="{% static 'img/img.jpg' %}" class="img-fluid" width="300px" height="100px" alt="encabezado">
+            <div class="col-12 text-center">
+                <img src="{% static 'img/img.jpg' %}" width="350px" alt="encabezado">
                 {% if image %}
-                    <img src="{{ image.image.url }}" alt="{{ image.name }}" class="img-fluid">
+                    <img src="{{ image.image.url }}" alt="{{ image.name }}" width="800px">
                 {% else %}
                     <p class="font-weight-bold">Sin datos para mostrar.</p>
                 {% endif %}
