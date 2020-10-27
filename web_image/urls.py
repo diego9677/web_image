@@ -17,14 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 # routes
-from images.views import prevision, futuro, index
+from images.views import PrevisionView, FuturoView
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='index'),
-    path('prevision/', prevision, name='prevision'),
-    path('futuro/', futuro, name='futuro')
+    path('afp/prevision/<int:pk>/<slug:name>', PrevisionView.as_view(), name='prevision-detail'),
+    path('afp/futuro/<int:pk>/<slug:name>/', FuturoView.as_view(), name='futuro-detail')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
