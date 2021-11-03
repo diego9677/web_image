@@ -10,17 +10,13 @@
 <!--     <nav class="navbar navbar-expand-lg" style="background: #042e58;">
         <img width="250px" height="60px" class="navbar-brand my-2" src="https://www.prevision.com.bo/archivos/multimedia/logo_2021.svg" alt="logo">
     </nav> -->
-    <div>
-        <div class="row p-0 m-o">
-            <div class="col-12 text-center">
-                {% if object %}
-                   <div style="width: 100%">
-                    <img src="{{ object.image.url }}" alt="{{ object.name }}" width="800px">
-                   </div>
-                {% else %}
-                    <p class="font-weight-bold">Sin datos para mostrar.</p>
-                {% endif %}
-            </div>
-        </div>
+    <div style="width: 100%">
+      {% if object %}
+           <div>
+            <img src="{{ object.image.url }}" alt="{{ object.name }}" width="100%">
+           </div>
+        {% else %}
+            <p class="font-weight-bold">Sin datos para mostrar.</p>
+        {% endif %}  
     </div>
 {% endblock %}
