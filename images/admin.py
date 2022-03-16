@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Prevision, Futuro
 from django.urls import reverse
 from django.template.defaultfilters import slugify
-
+from django.conf import settings
 
 @admin.register(Prevision)
 class PrevisionAdmin(admin.ModelAdmin):
@@ -19,7 +19,7 @@ class PrevisionAdmin(admin.ModelAdmin):
         return super().get_queryset(request)
 
     def full_url(self, obj: Prevision):
-        return f'{self.request.build_absolute_uri(reverse("prevision-detail", args=[obj.id, slugify(obj.name)]))}'
+        return f'http://{settings.MAIN_IP}{reverse("prevision-detail", args=[obj.id, slugify(obj.name)])}'
 
     full_url.short_description = 'url generada'
 
@@ -39,6 +39,6 @@ class FuturoAdmin(admin.ModelAdmin):
         return super().get_queryset(request)
 
     def full_url(self, obj: Futuro):
-        return f'{self.request.build_absolute_uri(reverse("futuro-detail", args=[obj.id, slugify(obj.name)]))}'
+        return f'http://{settings.MAIN_IP}{reverse("futuro-detail", args=[obj.id, slugify(obj.name)])}'
 
     full_url.short_description = 'url generada'
