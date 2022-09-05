@@ -3,6 +3,9 @@ from .models import Prevision, Futuro
 from django.urls import reverse
 from django.template.defaultfilters import slugify
 from django.conf import settings
+import socket
+
+ip_address = socket.gethostbyname(socket.gethostname())
 
 @admin.register(Prevision)
 class PrevisionAdmin(admin.ModelAdmin):
@@ -19,7 +22,7 @@ class PrevisionAdmin(admin.ModelAdmin):
         return super().get_queryset(request)
 
     def full_url(self, obj: Prevision):
-        return f'http://{settings.MAIN_IP}{reverse("prevision-detail", args=[obj.id, slugify(obj.name)])}'
+        return f'http://{ip_address}{reverse("prevision-detail", args=[obj.id, slugify(obj.name)])}'
 
     full_url.short_description = 'url generada'
 
@@ -39,6 +42,6 @@ class FuturoAdmin(admin.ModelAdmin):
         return super().get_queryset(request)
 
     def full_url(self, obj: Futuro):
-        return f'http://{settings.MAIN_IP}{reverse("futuro-detail", args=[obj.id, slugify(obj.name)])}'
+        return f'http://{ip_address}{reverse("futuro-detail", args=[obj.id, slugify(obj.name)])}'
 
     full_url.short_description = 'url generada'
