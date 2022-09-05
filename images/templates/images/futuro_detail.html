@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+    <!--
     <nav class="navbar navbar-expand-lg p-0" style="background: #9f2e1e;">
         <a href="#">
             <img width="97px" height="79px" id="logo" src="{% static 'img/logoafp2.jpg' %}">
@@ -15,10 +16,11 @@
      <div style="margin-left: 100px; color: #2a649d;" class="font-weight-bold">
             Futuro de Bolivia S.A. AFP > Asegurado >
      </div>
+    -->
     <div>
         <div class="row mb-4">
             <div class="col-12 text-center">
-                <img src="{% static 'img/img2.jpeg' %}" width="100%" alt="encabezado">
+                <img src="{% static 'img/img2.jpeg' %}" width="800px" alt="encabezado">
                 {% if object %}
                     <img src="{{ object.image.url }}" alt="{{ object.name }}" width="800px">
                 {% else %}
