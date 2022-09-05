@@ -2,7 +2,6 @@ from django.contrib import admin
 from .models import Prevision, Futuro
 from django.urls import reverse
 from django.template.defaultfilters import slugify
-from django.conf import settings
 import socket
 
 ip_address = socket.gethostbyname(socket.gethostname())
