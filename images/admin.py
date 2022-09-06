@@ -22,7 +22,7 @@ class PrevisionAdmin(admin.ModelAdmin):
         return super().get_queryset(request)
 
     def full_url(self, obj: Prevision):
-        return f'http://{hostname}{reverse("prevision-detail", args=[obj.id, slugify(obj.name)])}'
+        return f'https://{hostname}{reverse("prevision-detail", args=[obj.id, slugify(obj.name)])}'
 
     full_url.short_description = 'url generada'
 
@@ -42,6 +42,6 @@ class FuturoAdmin(admin.ModelAdmin):
         return super().get_queryset(request)
 
     def full_url(self, obj: Futuro):
-        return f'http://{hostname}{reverse("futuro-detail", args=[obj.id, slugify(obj.name)])}'
+        return f'https://{hostname}{reverse("futuro-detail", args=[obj.id, slugify(obj.name)])}'
 
     full_url.short_description = 'url generada'
