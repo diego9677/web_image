@@ -4,7 +4,8 @@ from django.urls import reverse
 from django.template.defaultfilters import slugify
 import socket
 
-ip_address = socket.gethostbyname(socket.gethostname())
+hostname = socket.gethostname()
+ip_address = socket.gethostbyname(hostname)
 
 @admin.register(Prevision)
 class PrevisionAdmin(admin.ModelAdmin):
@@ -21,7 +22,7 @@ class PrevisionAdmin(admin.ModelAdmin):
         return super().get_queryset(request)
 
     def full_url(self, obj: Prevision):
-        return f'http://{ip_address}{reverse("prevision-detail", args=[obj.id, slugify(obj.name)])}'
+        return f'http://{hostname}{reverse("prevision-detail", args=[obj.id, slugify(obj.name)])}'
 
     full_url.short_description = 'url generada'
 
@@ -41,6 +42,6 @@ class FuturoAdmin(admin.ModelAdmin):
         return super().get_queryset(request)
 
     def full_url(self, obj: Futuro):
-        return f'http://{ip_address}{reverse("futuro-detail", args=[obj.id, slugify(obj.name)])}'
+        return f'http://{hostname}{reverse("futuro-detail", args=[obj.id, slugify(obj.name)])}'
 
     full_url.short_description = 'url generada'
